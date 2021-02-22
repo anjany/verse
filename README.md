@@ -43,7 +43,7 @@ For problems and questions not fit for a github issue, please email [Anjany Seku
 
 If you use VerSe, we would appreciate references to the following papers. 
 
-**Löffler M, et al., A Vertebral Segmentation Dataset with Fracture Grading. Radiology: Artificial Intelligence, 2020.** (https://doi.org/10.1148/ryai.2020190138)
+**Löffler M et al., A Vertebral Segmentation Dataset with Fracture Grading. Radiology: Artificial Intelligence, 2020.** (https://doi.org/10.1148/ryai.2020190138)
 
 **Sekuboyina A et al., VerSe: A Vertebrae Labelling and Segmentation Benchmark for Multi-detector CT Images, 2020.** (https://arxiv.org/abs/2001.09193)
 
