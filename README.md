@@ -2,7 +2,9 @@
 
 _... and there is power in numbers._ - Martin Luther King, Jr.
 
-The PatchCamelyon benchmark is a new and challenging image classification dataset. It consists of 327.680 color images (96 x 96px) extracted from histopathologic scans of lymph node sections. Each image is annoted with a binary label indicating presence of metastatic tissue. PCam provides a new benchmark for machine learning models: bigger than CIFAR10, smaller than imagenet, trainable on a single GPU.
+Spine or vertebral segmentation is a crucial step in all applications regarding automated quantification of spinal morphology and pathology. With the advent of deep learning, for such a task on computed tomography (CT) scans, a big and varied data is a primary sought-after resource. However, a large-scale, public dataset is currently unavailable. *VerSe comes in here*.
+
+VerSe is a large scale, multi-detector, multi-site, CT spine dataset consisting of 374 scans from 300 patients. 
 
 ![PCam example images. Green boxes indicate positive labels.](https://github.com/basveeling/pcam/blob/master/pcam.jpg)
 *Example images from PCam. Green boxes indicate tumor tissue in center region, which dictates a positive label.*
