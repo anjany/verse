@@ -11,11 +11,12 @@ _... and there is power in numbers._ - Martin Luther King, Jr.
 * [Download](#download)
 * [Code](#code)
 * [Benchmark](#benchmark)
-* [Visualization](#visualization)
-* [Contributing](#contributing)
 * [Contact](#contact)
-* [Citing PCam](#citing-pcam)
+* [Citing VerSe](#citing-verse)
 * [License](#license)
+* [Related Work](#related-work)
+* [Acknowledgements](#acknowledgements)
+
 </p></details><p></p>
 
 ## What is VerSe?
@@ -38,51 +39,26 @@ The challenge was
 For problems and questions not fit for a github issue, please email [Anjany Sekuboyina](mailto:anjany.sekuboyina@tum.de) or [Jan Kirschke](mailto:jan.kirschke@tum.de) .
 
 
-## Citing PCam
-If you use PCam in a scientific publication, we would appreciate references to the following paper:
+## Citing VerSe
 
+If you use VerSe, we would appreciate references to the following papers. 
 
-**[1] B. S. Veeling, J. Linmans, J. Winkens, T. Cohen, M. Welling. "Rotation Equivariant CNNs for Digital Pathology". [arXiv:1806.03962](http://arxiv.org/abs/1806.03962)**
+**Löffler M, et al., A Vertebral Segmentation Dataset with Fracture Grading. Radiology: Artificial Intelligence, 2020.** (https://doi.org/10.1148/ryai.2020190138)
 
-A citation of the original Camelyon16 dataset paper is appreciated as well:
+**Sekuboyina A et al., VerSe: A Vertebrae Labelling and Segmentation Benchmark for Multi-detector CT Images, 2020.** (https://arxiv.org/abs/2001.09193)
 
-**[2] Ehteshami Bejnordi et al. Diagnostic Assessment of Deep Learning Algorithms for Detection of Lymph Node Metastases in Women With Breast Cancer. JAMA: The Journal of the American Medical Association, 318(22), 2199–2210. [doi:jama.2017.14585](https://doi.org/10.1001/jama.2017.14585)**
-
-
-Biblatex entry:
-```latex
-@ARTICLE{Veeling2018-qh,
-  title         = "Rotation Equivariant {CNNs} for Digital Pathology",
-  author        = "Veeling, Bastiaan S and Linmans, Jasper and Winkens, Jim and
-                   Cohen, Taco and Welling, Max",
-  month         =  jun,
-  year          =  2018,
-  archivePrefix = "arXiv",
-  primaryClass  = "cs.CV",
-  eprint        = "1806.03962"
-}
-```
-
-<!-- [Who is citing PCam?](https://scholar.google.de/scholar?hl=en&as_sdt=0%2C5&q=pcam&btnG=&oq=fas) -->
-
-
-## Benchmark
-| Name  | Reference | Augmentations | Acc | AUC|  NLL | FROC* |
-| --- | --- | --- | --- | --- | --- | --- |
-| GDensenet | [1] | Following Liu et al. | 89.8 | 96.3 |  0.260 |75.8 (64.3, 87.2)|
-| [Add yours](https://github.com/basveeling/pcam/edit/master/README.md) | |
-
-\* Performance on Camelyon16 tumor detection task, not part of the PCam benchmark.
-
-
-## Contributing
-Contributions with example scripts for other frameworks are welcome!
 
 ## License
-The data is provided under the [CC0 License](https://choosealicense.com/licenses/cc0-1.0/), following the license of Camelyon16.
+The data is provided under the [CC BY-SA 4.0 License](https://creativecommons.org/licenses/by-sa/4.0/), making it fully open-sourced.
 
 The rest of this repository is under the [MIT License](https://choosealicense.com/licenses/mit/).
 
+## Related Work
+
+VerSe has resulted in numerous other publications. Below are a few selected ones.
+
+**Sekuboyina A. et al., Labelling Vertebrae with 2D Reformations of Multidetector CT Images: An Adversarial Approach for Incorporating Prior Knowledge of Spine Anatomy. Radiology: Artificial Intelligence, 2020.** (https://doi.org/10.1148/ryai.2020190074)
+
+
 ## Acknowledgements
-* Babak Ehteshami Bejnordi, Geert Litjens, Jeroen van der Laak for their input on the configuration of this dataset.
-* README derived from [Fashion-MNIST](https://github.com/zalandoresearch/fashion-mnist).
+* README derived from [PCam](https://github.com/basveeling/pcam).
