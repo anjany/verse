@@ -4,7 +4,6 @@ import numpy as np
 import nibabel as nib
 import nibabel.processing as nip
 import nibabel.orientations as nio
-from scipy.ndimage.measurements import center_of_mass, label
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap, Normalize
 from matplotlib.patches import Circle
