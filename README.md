@@ -7,14 +7,14 @@ _... and there is power in numbers._ - Martin Luther King, Jr.
 
 <details><summary>Table of Contents</summary><p>
 
-* [Why VerSe](#why-verse)
+* [What is VerSe?](#what-is-verse)
+* [Data] (#data)
 * [Download](#download)
-* [Code](#code)
-* [Benchmark](#benchmark)
-* [Contact](#contact)
 * [Citing VerSe](#citing-verse)
 * [License](#license)
-* [Related Work](#related-work)
+* [Code](#code)
+* [Contact](#contact)
+* [Other Related Work](#other-related-work)
 * [Acknowledgements](#acknowledgements)
 
 </p></details><p></p>
