@@ -95,11 +95,11 @@ The rest of this repository is under the [MIT License](https://choosealicense.co
 
 ## Code
 
-We provide the following notebooks with helper code.
+We provide helper code and guiding notebooks.
 
 * Data reading, standardising, and writing: [Data utilities](https://github.com/anjany/verse/blob/main/utils/data_utilities.py)
 * Evaluation (as employed in the 2020 challenge): [Evaluation utilities](https://github.com/anjany/verse/blob/main/utils/eval_utilities.py)  
-
+* Notebooks: [Data preperation](https://github.com/anjany/verse/blob/main/utils/prepare_data.ipynb), [Evaluation](https://github.com/anjany/verse/blob/main/utils/evaluate.ipynb)
 
 ## Contact
 For queries and issues not fit for a github issue, please email [Anjany Sekuboyina](mailto:anjany.sekuboyina@tum.de) or [Jan Kirschke](mailto:jan.kirschke@tum.de) .
