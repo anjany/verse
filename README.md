@@ -8,7 +8,7 @@ _... and there is power in numbers._ - Martin Luther King, Jr.
 <details><summary>Table of Contents</summary><p>
 
 * [What is VerSe?](#what-is-verse)
-* [Data] (#data)
+* [Data](#data)
 * [Download](#download)
 * [Citing VerSe](#citing-verse)
 * [License](#license)
