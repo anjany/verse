@@ -1,6 +1,6 @@
 # VerSe: Large Scale Vertebrae Segmentation Challenge
 
-_... and there is power in numbers._ - Martin Luther King, Jr.
+_Look well to the spine for the cause of disease_ - Hippocrates
 
 ![VerSe examples. Observe the variability in data: field-of-view, fractures, transitional vertebrae, etc.](assets/dataset_snapshot.png)
 *VerSe examples. Observe the variability in data: field-of-view, fractures, transitional vertebrae, etc.*
