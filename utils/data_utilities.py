@@ -1,3 +1,8 @@
+"""data_utilities.py: Everything data-related for VerSe."""
+
+__author__      = "Maximilian T. Löffler, Malek El Husseini"
+
+
 from pathlib import Path
 from numpy.core.numeric import NaN
 import numpy as np

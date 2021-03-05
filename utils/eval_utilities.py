@@ -1,3 +1,9 @@
+"""eval_utilities.py: Everything evaluation-related for VerSe."""
+
+__author__      = "Anjany Sekuboyina"
+
+
+
 import numpy as np
 
 # -------

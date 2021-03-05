@@ -54,8 +54,8 @@ training/derivatives/sub-verse000/
     - 1-7: cervical spine: C1-C7 
     - 8-19: thoracic spine: T1-T12 
     - 20-25: lumbar spine: L1-L6 
-    - 26,27: sacrum
-    - cocygis - not labeled in this dataset 
+    - 26: sacrum - not labeled in this dataset 
+    - 27: cocygis - not labeled in this dataset 
     - 28: additional 13th thoracic vertebra, T13
 
 
