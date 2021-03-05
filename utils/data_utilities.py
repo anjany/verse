@@ -39,7 +39,7 @@ colors_itk = (1/255)*np.array([
     ])
 cm_itk = ListedColormap(colors_itk)
 cm_itk.set_bad(color='w', alpha=0)  # set NaN to full opacity for overlay
-#plt.rcParams['axes.facecolor'] = 'black'  # set axis background black
+
 # define HU windows
 wdw_sbone = Normalize(vmin=-500, vmax=1300, clip=True)
 wdw_hbone = Normalize(vmin=-200, vmax=1000, clip=True)
@@ -49,8 +49,18 @@ wdw_hbone = Normalize(vmin=-200, vmax=1000, clip=True)
 
 
 def reorient_to(img, axcodes_to=('P', 'I', 'R'), verb=False):
-    # Note: nibabel axes codes describe the direction not origin of axes
-    # direction PIR+ = origin ASL
+    """Reorients the nifti from its original orientation to another specified orientation
+    
+    Parameters:
+    ----------
+    img: nibabel image
+    axcodes_to: a tuple of 3 characters specifying the desired orientation
+    
+    Returns:
+    ----------
+    newimg: The reoriented nibabel image 
+    
+    """
     aff = img.affine
     arr = np.asanyarray(img.dataobj, dtype=img.dataobj.dtype)
     ornt_fr = nio.io_orientation(aff)
@@ -66,6 +76,19 @@ def reorient_to(img, axcodes_to=('P', 'I', 'R'), verb=False):
 
 
 def resample_nib(img, voxel_spacing=(1, 1, 1), order=3):
+    """Resamples the nifti from its original spacing to another specified spacing
+    
+    Parameters:
+    ----------
+    img: nibabel image
+    voxel_spacing: a tuple of 3 integers specifying the desired new spacing
+    order: the order of interpolation
+    
+    Returns:
+    ----------
+    new_img: The resampled nibabel image 
+    
+    """
     # resample to new voxel spacing based on the current x-y-z-orientation
     aff = img.affine
     shp = img.shape
@@ -83,6 +106,18 @@ def resample_nib(img, voxel_spacing=(1, 1, 1), order=3):
 
 
 def resample_mask_to(msk, to_img):
+    """Resamples the nifti mask from its original spacing to a new spacing specified by its corresponding image
+    
+    Parameters:
+    ----------
+    msk: The nibabel nifti mask to be resampled
+    to_img: The nibabel image that acts as a template for resampling
+    
+    Returns:
+    ----------
+    new_msk: The resampled nibabel mask 
+    
+    """
     to_img.header['bitpix'] = 8
     to_img.header['datatype'] = 2  # uint8
     new_msk = nib.processing.resample_from_to(msk, to_img, order=0)
@@ -91,6 +126,17 @@ def resample_mask_to(msk, to_img):
 
 
 def get_plane(img_path):
+    """Gets the plane of the highest resolution from a nifti file
+    
+    Parameters:
+    ----------
+    img_path: the full path to the nifti file
+    
+    Returns:
+    ----------
+    plane: a string corresponding to the plane of highest resolution
+    
+    """
     plane_dict = {
         'S': 'ax', 'I': 'ax', 'L': 'sag', 'R': 'sag', 'A': 'cor', 'P': 'cor'}
     img = nib.load(str(img_path))
@@ -111,6 +157,17 @@ def get_plane(img_path):
 # Handling centroids #
 
 def load_centroids(ctd_path):
+    """loads the json centroid file
+    
+    Parameters:
+    ----------
+    ctd_path: the full path to the json file
+    
+    Returns:
+    ----------
+    ctd_list: a list containing the orientation and coordinates of the centroids
+    
+    """
     with open(ctd_path) as json_data:
         dict_list = json.load(json_data)
         json_data.close()
@@ -126,6 +183,17 @@ def load_centroids(ctd_path):
 
 
 def centroids_to_dict(ctd_list):
+    """Converts the centroid list to a dictionary of centroids
+    
+    Parameters:
+    ----------
+    ctd_list: the centroid list
+    
+    Returns:
+    ----------
+    dict_list: a dictionart of centroids having the format dict[vertebra] = ['X':x, 'Y':y, 'Z': z]
+    
+    """
     dict_list = []
     for v in ctd_list:
         if any('nan' in str(v_item) for v_item in v): continue   #skipping invalid NaN values
@@ -142,6 +210,14 @@ def centroids_to_dict(ctd_list):
 
 
 def save_centroids(ctd_list, out_path):
+    """Saves the centroid list to json file
+    
+    Parameters:
+    ----------
+    ctd_list: the centroid list
+    out_path: the full desired save path
+    
+    """
     if len(ctd_list) < 2:
         print("[#] Centroids empty, not saved:", out_path)
         return
@@ -157,8 +233,18 @@ def save_centroids(ctd_list, out_path):
 
 
 def calc_centroids(msk, decimals=1, world=False):
-    # Centroids are in voxel coordinates!
-    # world=True: centroids are in world coordinates
+    """Gets the centroids from a nifti mask by calculating the centers of mass of each vertebra
+    
+    Parameters:
+    ----------
+    msk: nibabel nifti mask
+    decimals: rounds the coordinates x decimal digits
+    
+    Returns:
+    ----------
+    ctd_list: list of centroids 
+    
+    """
     msk_data = np.asanyarray(msk.dataobj, dtype=msk.dataobj.dtype)
     axc = nio.aff2axcodes(msk.affine)
     ctd_list = [axc]
@@ -176,8 +262,19 @@ def calc_centroids(msk, decimals=1, world=False):
 
 
 def reorient_centroids_to(ctd_list, img, decimals=1, verb=False):
-    # reorient centroids to image orientation
-    # todo: reorient to given axcodes (careful if img ornt != ctd ornt)
+    """reorient centroids to image orientation
+    
+    Parameters:
+    ----------
+    ctd_list: list of centroids
+    img: nibabel image 
+    decimals: rounding decimal digits
+    
+    Returns:
+    ----------
+    out_list: reoriented list of centroids 
+    
+    """
     ctd_arr = np.transpose(np.asarray(ctd_list[1:]))
     if len(ctd_arr) == 0:
         print("[#] No centroids present") 
@@ -205,7 +302,19 @@ def reorient_centroids_to(ctd_list, img, decimals=1, verb=False):
 
 
 def rescale_centroids(ctd_list, img, voxel_spacing=(1, 1, 1)):
-    # rescale centroid coordinates to new spacing in current x-y-z-orientation
+    """rescale centroid coordinates to new spacing in current x-y-z-orientation
+    
+    Parameters:
+    ----------
+    ctd_list: list of centroids
+    img: nibabel image 
+    voxel_spacing: desired spacing
+    
+    Returns:
+    ----------
+    out_list: rescaled list of centroids 
+    
+    """
     ornt_img = nio.io_orientation(img.affine)
     ornt_ctd = nio.axcodes2ornt(ctd_list[0])
     if np.array_equal(ornt_img, ornt_ctd):
@@ -229,6 +338,18 @@ def rescale_centroids(ctd_list, img, voxel_spacing=(1, 1, 1)):
     return out_list
 
 def create_figure(dpi, *planes):
+    """creates a matplotlib figure
+    
+    Parameters:
+    ----------
+    dpi: desired dpi
+    *planes: numpy arrays to include in the figure 
+    
+    Returns:
+    ----------
+    fig, axs
+    
+    """
     fig_h = round(2 * planes[0].shape[0] / dpi, 2)
     plane_w = [p.shape[1] for p in planes]
     w = sum(plane_w)
@@ -245,6 +366,14 @@ def create_figure(dpi, *planes):
 
 
 def plot_sag_centroids(axs, ctd, zms):
+    """plots sagittal centroids on a plane axes
+    
+    Parameters:
+    ----------
+    axs: matplotlib axs
+    ctd: list of centroids
+    zms: the spacing of the image
+    """
     # requires v_dict = dictionary of mask labels
     for v in ctd[1:]:
         axs.add_patch(Circle((v[2]*zms[1], v[1]*zms[0]), 2, color=colors_itk[v[0]-1]))
@@ -252,6 +381,14 @@ def plot_sag_centroids(axs, ctd, zms):
 
 
 def plot_cor_centroids(axs, ctd, zms):
+    """plots coronal centroids on a plane axes
+    
+    Parameters:
+    ----------
+    axs: matplotlib axs
+    ctd: list of centroids
+    zms: the spacing of the image
+    """
     # requires v_dict = dictionary of mask labels
     for v in ctd[1:]:
         axs.add_patch(Circle((v[3]*zms[2], v[1]*zms[0]), 2, color=colors_itk[v[0]-1]))
