@@ -97,8 +97,8 @@ The rest of this repository is under the [MIT License](https://choosealicense.co
 
 We provide the following notebooks with helper code.
 
-* Data reading, standardising, and writing: [Data utilities](https://github.com/anjany/verse/blob/main/data_utils/Data_Processing.ipynb)
-* Evaluation (as employed in the 2019 and 2020 chalenges): [Evaluation utilities](https://github.com/anjany/verse/blob/main/data_utils/Data_Processing.ipynb)  
+* Data reading, standardising, and writing: [Data utilities](https://github.com/anjany/verse/blob/main/utils/data_utilities.py)
+* Evaluation (as employed in the 2019 and 2020 chalenges): [Evaluation utilities](https://github.com/anjany/verse/blob/main/utils/eval_utilities.py)  
 
 
 ## Contact
