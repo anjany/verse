@@ -8,9 +8,9 @@ _Look well to the spine for the cause of disease_ - Hippocrates
 <details><summary>Table of Contents</summary><p>
 
 * [What is VerSe?](#what-is-verse)
+* [Citing VerSe](#citing-verse)
 * [Data](#data)
 * [Download](#download)
-* [Citing VerSe](#citing-verse)
 * [License](#license)
 * [Code](#code)
 * [Contact](#contact)
@@ -23,6 +23,15 @@ _Look well to the spine for the cause of disease_ - Hippocrates
 Spine or vertebral segmentation is a crucial step in all applications regarding automated quantification of spinal morphology and pathology. With the advent of deep learning, for such a task on computed tomography (CT) scans, a big and varied data is a primary sought-after resource. However, a large-scale, public dataset is currently unavailable.
 
 We believe *VerSe* can help here. VerSe is a large scale, multi-detector, multi-site, CT spine dataset consisting of 374 scans from 300 patients. The challenge was held in two iterations in conjunction with MICCAI 2019 and 2020. The tasks evaluated for include: vertebral labelling and segmentation.  
+
+## Citing VerSe
+
+If you use VerSe, we would appreciate references to the following papers. 
+
+**Löffler M et al., A Vertebral Segmentation Dataset with Fracture Grading. Radiology: Artificial Intelligence, 2020.** (https://doi.org/10.1148/ryai.2020190138)
+
+**Sekuboyina A et al., VerSe: A Vertebrae Labelling and Segmentation Benchmark for Multi-detector CT Images, 2020.** (https://arxiv.org/abs/2001.09193)
+
 
 
 ## Data
@@ -77,16 +86,6 @@ training/derivatives/sub-verse000/
 2. VerSe'20: https://osf.io/t98fz/
 
 **Note**: The annotation format of the complete VerSe data is **NOT** identical to the one used for the MICCAI challenges. The OSF repositories above also point to the MICCAI version of the data and annotations. Nonetheless, **we recommend usage of the restructured data and annotations**
-
-
-## Citing VerSe
-
-If you use VerSe, we would appreciate references to the following papers. 
-
-**Löffler M et al., A Vertebral Segmentation Dataset with Fracture Grading. Radiology: Artificial Intelligence, 2020.** (https://doi.org/10.1148/ryai.2020190138)
-
-**Sekuboyina A et al., VerSe: A Vertebrae Labelling and Segmentation Benchmark for Multi-detector CT Images, 2020.** (https://arxiv.org/abs/2001.09193)
-
 
 ## License
 The data is provided under the [CC BY-SA 4.0 License](https://creativecommons.org/licenses/by-sa/4.0/), making it fully open-sourced.
