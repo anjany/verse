@@ -28,10 +28,11 @@ We believe *VerSe* can help here. VerSe is a large scale, multi-detector, multi-
 
 If you use VerSe, we would appreciate references to the following papers. 
 
-**Löffler M et al., A Vertebral Segmentation Dataset with Fracture Grading. Radiology: Artificial Intelligence, 2020.** (https://doi.org/10.1148/ryai.2020190138)
+1. **Sekuboyina A et al., VerSe: A Vertebrae Labelling and Segmentation Benchmark for Multi-detector CT Images, 2021.**<br />In Medical Image Analysis: https://doi.org/10.1016/j.media.2021.102166<br />Pre-print: https://arxiv.org/abs/2001.09193
 
-**Sekuboyina A et al., VerSe: A Vertebrae Labelling and Segmentation Benchmark for Multi-detector CT Images, 2020.** (https://arxiv.org/abs/2001.09193)
+2. **Löffler M et al., A Vertebral Segmentation Dataset with Fracture Grading. Radiology: Artificial Intelligence, 2020.**<br />In Radiology AI: https://doi.org/10.1148/ryai.2020190138
 
+3. **Liebl H and Schinz D et al., A Computed Tomography Vertebral Segmentation Dataset with Anatomical Variations and Multi-Vendor Scanner Data, 2021.**<br />Pre-print: https://arxiv.org/pdf/2103.06360.pdf
 
 
 ## Data
